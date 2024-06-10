@@ -31,7 +31,7 @@ export default function IndexPage() {
                 <div key={fileIndex} className="mb-2 flex items-center justify-between opacity-80">
                   <span>{file.title}</span>
                   <Link href={file.path}>
-                    <Button variant={"secondary"}>Letöltés</Button>
+                    <Button asChild variant={"secondary"}>Letöltés</Button>
                   </Link>
                 </div>
               ))}
