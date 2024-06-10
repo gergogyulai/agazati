@@ -21,7 +21,7 @@ export default function IndexPage() {
               <CardTitle>{vizsga.title}</CardTitle>
               <CardDescription>
                 <Link href={vizsga.doc}>
-                  <p className="text-blue-500 underline">Teljes Feladatlap</p>
+                  <span className="text-blue-500 underline">Teljes Feladatlap</span>
                 </Link>
               </CardDescription>
             </CardHeader>
@@ -31,7 +31,7 @@ export default function IndexPage() {
                 <div key={fileIndex} className="mb-2 flex items-center justify-between opacity-80">
                   <span>{file.title}</span>
                   <Link href={file.path}>
-                    <Button asChild variant={"secondary"}>Letöltés</Button>
+                    <Button variant={"secondary"}>Letöltés</Button>
                   </Link>
                 </div>
               ))}
