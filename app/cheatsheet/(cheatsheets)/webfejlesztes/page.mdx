@@ -1,0 +1,539 @@
+# Weboldal Kódolás Cheatsheet
+
+## Tartalomjegyzék
+1. [HTML Alapok](#html-alapok)
+    - [Általános Beállítások](#általános-beállítások)
+    - [HTML Alapstruktúra](#html-alapstruktúra)
+    - [Kép beillesztése](#kép-beillesztése)
+    - [Felsorolások](#felsorolások)
+    - [Bekezdések és Kiemelések](#bekezdések-és-kiemelések)
+    - [Táblázatok](#táblázatok)
+    - [Hivatkozások és Ugrópontok](#hivatkozások-és-ugrópontok)
+    - [VSCode Emmet Rövidítések](#vscode-emmet-rövidítések)
+2. [CSS Alapok](#css-alapok)
+   - [Betűtípus beállítások](#betűtípus-beállítások)
+   - [Elem szélessége](#elem-szélessége)
+   - [Bekezdés igazítása](#bekezdés-igazítása)
+   - [Listaelem stílus](#listaelem-stílus)
+3. [Színek](#színek)
+4. [Szegélyek](#szegélyek)
+5. [Háttérképek](#háttérképek)
+6. [Belső és Külső margók (margin, padding)](#belső-és-külső-margók-margin-padding)
+7. [Ellenőrzés](#ellenőrzés)
+
+## Bevezetés
+Ez a weboldal kódolás cheatsheet tartalmazza az alapvető HTML és CSS kódokat, amelyek segítségével weboldalakat készíthetünk. A cheatsheet tartalmazza az alapvető HTML elemeket, CSS tulajdonságokat, színeket, szegélyeket, háttérképeket, margókat és egyéb hasznos információkat.
+
+W3Schools: 
+[HTML](https://www.w3schools.com/html/default.asp), 
+[CSS](https://www.w3schools.com/css/default.asp)
+## HTML Alapok
+
+### Általános Beállítások
+
+### HTML Alapok
+- Nyelv beállítása a HTML dokumentum tetején:
+    ```html
+    <html lang="hu">
+    ```
+- Karakterkódolás megadása a head szekcióban:
+    ```html
+    <meta charset="UTF-8">
+    ```
+- Böngésző címsorának beállítása:
+    ```html
+    <title>Weboldal Címe</title>
+    ```
+- Stíluslap csatolása a HTML dokumentumhoz:
+    ```html
+    <link rel="stylesheet" href="css/style.css">
+    ```
+
+### HTML Alapstruktúra
+A HTML dokumentum alapvető felépítése. Minden HTML dokumentum ezzel kezdődik.
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Weboldal Címe</title>
+</head>
+<body>
+    <h1>Címsor 1</h1>
+    <p>Ez egy bekezdés.</p>
+</body>
+</html>
+```
+
+### Kép beillesztése
+Kép hozzáadása a weboldalhoz, alternatív szöveggel és felirattal.
+```html
+<img src="img/kep.jpg" alt="Ha a kép nem jelenik meg" title="Ha a kép fölé visszük a kurzort">
+```
+
+### Felsorolások
+- Számozatlan felsorolás:
+    ```html
+    <ul>
+        <li>Elem 1</li>
+        <li>Elem 2</li>
+    </ul>
+    ```
+    ```code
+    ul>li*3
+    ```
+- Számozott felsorolás:
+    ```html
+    <ol>
+        <li>Elem 1</li>
+        <li>Elem 2</li>
+    </ol>
+    ```
+    ```code
+    ol>li*3
+    ```
+
+### Bekezdések és Kiemelések
+- Bekezdés létrehozása:
+    ```html
+    <p>Ez egy bekezdés.</p>
+    ```
+- Félkövér szöveg:
+    ```html
+    <b>Félkövér szöveg</b>
+    ```
+- Dőlt szöveg:
+    ```html
+    <i>Dőlt szöveg</i>
+    ```
+- Aláhúzott szöveg:
+    ```html
+    <u>Aláhúzott szöveg</u>
+    ```
+
+### Táblázatok
+- Egyszerű táblázat létrehozása:
+    ```html
+    <table>
+        <thead>
+            <tr>
+                <th>Fejléc 1</th>
+                <th>Fejléc 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Adat 1</td>
+                <td>Adat 2</td>
+            </tr>
+        </tbody>
+    </table>
+    ```
+- Bootstrap táblázat:
+    ```html
+    <table class="table table-striped">
+        <thead class="text-uppercase">
+            <tr>
+                <th>Fejléc 1</th>
+                <th>Fejléc 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Adat 1</td>
+                <td>Adat 2</td>
+            </tr>
+        </tbody>
+    </table>
+    ```
+
+### Hivatkozások és Ugrópontok
+- Sima hivatkozás létrehozása:
+    ```html
+    <a href="https://example.com">Külső Link</a>
+    ```
+- Új lapon megnyíló link:
+    ```html
+    <a href="https://example.com" target="_blank">Külső Link</a>
+    ```
+- Ugrópontok létrehozása:
+    - Ugrópont hivatkozása:
+        ```html
+        <a href="#eleje">Ugrás az elejére</a>
+        ```
+    - Ugrópont célja:
+        ```html
+        <div id="eleje"></div>
+        ```
+### VSCode Emmet Rövidítések
+
+1. Számozatlan lista azonosítóval és osztállyal:
+    ```code
+    ul#unorderedList>li.item*5
+    ```
+    ```html
+    <ul id="unorderedList">
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+    </ul>
+    ```
+
+2. Számozott lista 4 elemmel, mindegyik külön osztállyal:
+    ```code
+    ol#orderedList>li.item$*4
+    ```
+    ```html
+    <ol id="orderedList">
+        <li class="item1"></li>
+        <li class="item2"></li>
+        <li class="item3"></li>
+        <li class="item4"></li>
+    </ol>
+    ```
+
+3. Beágyazott rendezetlen listák azonosítóval és osztályokkal:
+    ```code
+    ul#parentList>li.parentItem*2>ul.childList>li.childItem*3
+    ```
+    ```html
+    <ul id="parentList">
+        <li class="parentItem">
+            <ul class="childList">
+                <li class="childItem"></li>
+                <li class="childItem"></li>
+                <li class="childItem"></li>
+            </ul>
+        </li>
+        <li class="parentItem">
+            <ul class="childList">
+                <li class="childItem"></li>
+                <li class="childItem"></li>
+                <li class="childItem"></li>
+            </ul>
+        </li>
+    </ul>
+    ```
+
+4. Beágyazott táblázatok azonosítóval és osztályokkal:
+    ```code
+    table#mainTable.tableClass>tr.rowClass*3>td.cellClass*4
+    ```
+    ```html
+    <table id="mainTable" class="tableClass">
+        <tr class="rowClass">
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+        </tr>
+        <tr class="rowClass">
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+        </tr>
+        <tr class="rowClass">
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+            <td class="cellClass"></td>
+        </tr>
+    </table>
+    ```
+
+5. Az összes kijelölt sor külön bekezdéssé alakitása
+    ```code
+    Ez az elso sor
+    Ez a masodik sor
+    Ez a harmadik sor
+    Ez a negyedik sor
+    ```
+    ```code
+    p*
+    ```
+    így alakul át:
+    ```html
+    <p>Ez az elso sor</p>
+    <p>Ez a masodik sor</p>
+    <p>Ez a harmadik sor</p>
+
+
+    <p>Ez a negyedik sor</p>
+    ```
+
+## CSS Alapok
+
+### Betűtípus beállítások
+- Betűtípus megadása:
+    ```css
+    body {
+        font-family: 'Verdana';
+    }
+    ```
+- Betűméret megadása:
+    ```css
+    body {
+        font-size: 16px;
+    }
+    ```
+- Betűszín megadása:
+    ```css
+    body {
+        color: black;
+    }
+    ```
+- Betű vastagságának beállítása:
+    ```css
+    body {
+        font-weight: bold;
+    }
+    ```
+- Betű stílusának megadása:
+    ```css
+    body {
+        font-style: italic;
+    }
+    ```
+- Kiskapitális betűk:
+    ```css
+    body {
+        font-variant: small-caps;
+    }
+    ```
+- Nagybetűs vagy kisbetűs szöveg:
+    ```css
+    .nagybetu {
+        text-transform: uppercase;
+    }
+    .kisbetu {
+        text-transform: lowercase;
+    }
+    ```
+- Betű méretének nagyítása és kicsinyítése az alapértelmezett mérethez képest:
+    ```css
+    .nagyitas {
+        font-size: 1.2em;
+        /*  vagy  */
+        font-size: 120%;
+    }
+    .kicsinyites {
+        font-size: 0.8em;
+        /*  vagy  */
+        font-size: 80%;
+    }
+    ```
+
+### Elem szélessége
+Elem szélességének vagy magasságának beállítása
+```css
+#fejlec {
+    /*  szélesség  */
+    width: 100%; /*  százalékban  */
+    width: 960px;  /*  pixelben (képpont) */
+
+    /*  magasság  */
+    height: 100px; /*  pixelben (képpont)  */
+    height: 80%; /*  százalékban  */
+}
+```
+
+### Bekezdés igazítása
+Bekezdés igazítása sorkizárt módon.
+```css
+p {
+    /* balra igazítás  */
+    text-align: left;
+
+    /* jobbra igazítás  */
+    text-align: right;
+
+    /* középre igazítás  */
+    text-align: center;
+
+    /* sorkizárt  */
+    text-align: justify;
+}
+```
+
+### Listaelem stílus
+Listaelem stílusának megadása egyedi kép használatával.
+```css
+#lista {
+    list-style-image: url('../img/rovar.png');
+}
+```
+
+## Színek
+Színek különböző formátumokban történő megadása.
+- Szín megadása:
+    ```css
+    body {
+        /*  rgb kóddal  */
+        color: rgb(255, 0, 0);
+
+        /*  rgb kóddal átlátszósággal */
+        color: rgba(255, 0, 0, 0.5); /* tiszta piros (50% átlátszóság) */
+
+        /*  százalékosan  */
+        color: rgb(100%, 0%, 0%);
+
+        /* hex kóddal */
+        color: rgb(#ff0000);
+    }
+    ```
+- Háttérszín:
+    ```css
+    body {
+        background-color: rgb(255, 255, 255);
+    }
+    ```
+- Betűszín:
+    ```css
+    body {
+        color: black;
+    }
+    ```
+
+## Szegélyek
+Szegély tulajdonságainak megadása.
+- Szegély vastagsága:
+    ```css
+    .doboz {
+        border-width: 2px;
+    }
+    ```
+- Szegély színe:
+    ```css
+    .doboz {
+        border-color: black;
+    }
+    ```
+- Szegély stílusa:
+    ```css
+    .doboz {
+        /* folyamatos  */
+        border-style: solid;
+        /* szaggatott  */
+        border-style: dashed;
+        /* pontozott  */
+        border-style: dotted;
+    }
+    ```
+- Szegélyek külön-külön:
+    ```css
+    .doboz {
+        border-top-width: 2px;
+        border-right-width: 4px;
+        border-bottom-width: 5px;
+        border-left-width: 6px;
+        border-style: soild;
+        border-color: #ff0000;
+    }
+    ```
+    - Felül: 2px
+    - Jobb: 4px
+    - Alul: 5px
+    - Bal: 6px
+    - Stílus: folyamatos
+    - Szín: piros
+- Szegélyek rövidítve:
+    ```css
+    .doboz {
+        border: 2px 4px 5px 6px dashed #ff0000;
+    }
+    ```
+    - Felül: 2px
+    - Jobb: 4px
+    - Alul: 5px
+    - Bal: 6px
+    - Stílus: szaggatott
+    - Szín: piros
+
+## Háttérképek
+Háttérképek beállításai.
+- Háttérkép beállítása:
+    ```css
+    body {
+        background-image: url('img/hatter.jpg');
+    }
+    ```
+- Háttérkép ismétlődése:
+    ```css
+    body {
+        background-repeat: no-repeat;
+    }
+    ```
+- Háttérkép pozíciója:
+    ```css
+    body {
+        background-position: center;
+    }
+    ```
+- Háttérkép mérete:
+    ```css
+    body {
+        background-size: cover;
+    }
+    ```
+
+## Belső és Külső margók (margin, padding)
+Margók és belső margók (padding) beállítása.
+- Belső margó (mind a 4 oldalon):
+    ```css
+    .doboz {
+        padding: 10px;
+    }
+    ```
+- Külső margó (mind a 4 oldalon):
+    ```css
+    .doboz {
+        margin: 10px;
+    }
+    ```
+- Minden margó tulajdonság egyben (mind a 4 oldalon):
+    ```css
+    .doboz {
+        margin: 10px;
+        padding: 10px;
+    }
+    ```
+- Margók külön-külön:
+    ```css
+    .doboz {
+        margin-top: 10px;
+        margin-right: 20px;
+        margin-bottom: 30px;
+        margin-left: 40px;
+    }
+    ```
+    - Felül: 10px
+    - Jobb: 20px
+    - Alul: 30px
+    - Bal: 40px
+- Margók rövidítve:
+    ```css
+    .doboz {
+        margin: 10px 20px 30px 40px;
+    }
+    ```
+    - Felül: 10px
+    - Jobb: 20px
+    - Alul: 30px
+    - Bal: 40px
+
+- Margók két oldalra:
+    ```css
+    .doboz {
+        margin: 10px 20px;
+    }
+    ```
+    - Felül: 10px
+    - Jobb: 20px
+
+## Ellenőrzés
+A weboldal HTML és CSS kódjának ellenőrzése a W3C validátorok segítségével.
+- [HTML Validálás](https://validator.w3.org/)
+- [CSS Validálás](https://jigsaw.w3.org/css-validator/)

@@ -1,0 +1,452 @@
+# Python Programozási Alapok Cheat Sheet
+
+## Tartalomjegyzék
+
+1. [Alapvető Python Programozási Alapok](#alapvető-python-programozási-alapok)
+   - [Bemenet Bekérése](#bemenet-bekérése)
+   - [Fájlkezelés](#fájlkezelés)
+   - [Kiíratás](#kiíratás)
+   - [Ciklusok](#ciklusok)
+   - [Feltételes Elágazás](#feltételes-elágazás)
+   - [Adattipusok](#adattipusok)
+
+2. [Python Classok (Objektumok) és Függvények](#python-classok-objektumok-és-függvények)
+   - [Függvények](#függvények)
+   - [Osztályok](#osztályok)
+   - [Modulok](#modulok)
+
+---
+
+## Alapvető Python Programozási Alapok
+
+### Bemenet Bekérése
+
+- Bekérés és típus konverzió:
+  ```python
+  szám = int(input('Adj meg egy számot! '))
+  szó = input('Adj meg egy szavat! ')
+  ```
+
+- Folyamatos bekérés:
+  - Ha a szám == 0, akkor a ciklus megszakad:
+    ```python
+    while True:
+        szám = int(input('Adj meg egy számot! '))
+        if szám == 0:
+            break
+    ```
+  - Ha a bemenet üres string, akkor a ciklus megszakad:
+    ```python
+    while True:
+        szó = input('Adj meg egy szavat! ')
+        if szó == '':
+            break
+    ```
+
+### Fájlkezelés
+
+- Fájlból olvasás:
+  ```python
+  with open('fájlnév.txt', 'r') as forrástfájl:
+      for sor in forrástfájl:
+          print(sor, end='')
+  ```
+
+- Fájlból olvasás listába:
+  ```python
+  sorok = []
+  with open('fájlnév.txt', 'r') as forrástfájl:
+      for sor in forrástfájl:
+          sorok.append(sor.strip())
+  print(sorok)
+  ```
+
+- Fájlba írás:
+  ```python
+  with open('fájlnév.txt', 'w') as célfájl:
+      print('A kiírandó szöveg.', file=célfájl)
+  ```
+
+- Fájlba írás listából:
+  ```python
+  sorok = ['Első sor', 'Második sor', 'Harmadik sor']
+  with open('fájlnév.txt', 'w') as célfájl:
+      for sor in sorok:
+          print(sor, file=célfájl)
+  ```
+
+### Kiíratás
+
+- Szimpla kiíratás:
+  ```python
+  print('A kiírandó szöveg')
+  ```
+
+- Formázott kiíratás:
+  - Változók:
+    ```python
+    szám = 5
+    print(f'A szám értéke: {szám}')
+    ```
+  - Kifejezések:
+    ```python
+    print(f'A szám kétszerese: {szám * 2}')
+    ```
+
+- Sor végének megváltoztatása:
+  ```python
+  print('Első sor vége.', end='')
+  print('Második sor eleje.')
+  ```
+
+### Ciklusok
+
+A ciklusok segítségével egy műveletet többször is végrehajthatunk anélkül, hogy ugyanazt a kódot újra és újra le kellene írni. Pythonban két fő ciklustípus van: a `for` ciklus és a `while` ciklus.
+
+#### For Ciklus
+
+A `for` ciklus egy adott tartományban vagy iterálható objektumban lévő elemeket jár végig.
+
+Például, ha egy tartományban lévő számokat szeretnénk kiírni:
+```python
+for szám in range(1, 6):
+    print(szám)
+```
+Ez a ciklus az 1 és 5 közötti számokat írja ki.
+
+Ha egy lista elemeit szeretnénk kiírni:
+```python
+lista = [10, 20, 30, 40, 50]
+for elem in lista:
+    print(elem)
+```
+Ez a ciklus a lista minden elemét kiírja.
+
+#### While Ciklus
+
+A `while` ciklus addig fut, amíg a feltétel igaz.
+
+Például, ha számokat szeretnénk bekérni, amíg a felhasználó 0-t nem ad meg:
+```python
+while True:
+    szám = int(input('Adj meg egy számot! '))
+    if szám == 0:
+        break
+```
+Ez a ciklus folyamatosan kér be számokat, amíg a felhasználó 0-t nem ad meg.
+
+Egy egyszerű példa, ahol egy változó értékét csökkentjük:
+```python
+szám = 5
+while szám > 0:
+    print(szám)
+    szám -= 1
+```
+Ez a ciklus addig fut, amíg a `szám` nagyobb mint 0.
+
+#### Ciklus Módszerek
+
+- **break**: Megszakítja a ciklust.
+  ```python
+  for szám in range(10):
+      if szám == 5:
+          break
+      print(szám)
+  ```
+  Ez a ciklus megáll, amikor a `szám` értéke 5.
+
+- **continue**: Átugorja az aktuális iterációt és folytatja a következővel.
+  ```python
+  for szám in range(10):
+      if szám % 2 == 0:
+          continue
+      print(szám)
+  ```
+  Ez a ciklus csak a páratlan számokat írja ki.
+
+### Feltételes Elágazás
+
+- Egyszerű if-else struktúra:
+  ```python
+  if feltétel:
+      # művelet, ha a feltétel igaz
+  elif másik_feltétel:
+      # művelet, ha a másik feltétel igaz
+  else:
+      # művelet, ha egyik feltétel sem igaz
+  ```
+
+- Egyszerű feltételek:
+  ```python
+  if szám > 0:
+      print('A szám pozitív.')
+
+  if szám % 2 == 0:
+      print('A szám páros.')
+
+  if szam1 > szam2:
+      print('Az első szám nagyobb.')
+
+  if szám1 == szám2:
+      print('A két szám egyenlő.')
+
+  if szám1 != szám2:
+      print('A két szám nem egyenlő.')
+
+  if szám1 < szám2:
+      print('Az első szám kisebb.')
+
+  if szám1 >= szám2:
+      print('Az első szám nagyobb vagy egyenlő.')
+
+  if szám1 <= szám2:
+      print('Az első szám kisebb vagy egyenlő.')
+
+  if 9 >= szám1 <= 5:
+      print('A szám 5 és 9 között van.')
+  ```
+
+- Összetett feltételek:
+  ```python
+  if szám > 0 and szám % 2 == 0:
+      print('A szám pozitív és páros.')
+
+  if szám1 > 0 and szám1 % 2 == 0:
+      print('A szám pozitív és páros.')
+
+  if szám1 > 0 or szám1 % 2 == 0:
+      print('A szám pozitív vagy páros.')
+
+  if not szám1 > 0:
+      print('A szám nem pozitív.')
+
+  if szám1 > 0 and not szám1 % 2 == 0:
+      print('A szám pozitív és nem páros.')
+
+  if szám1 > 0 or not szám1 % 2 == 0:
+      print('A szám pozitív vagy nem páros.')
+
+  if (szám1 > 0 and szám1 % 2 == 0) or szám1 == 0:
+      print('A szám pozitív és páros vagy nulla.')
+
+  if (szám1 > 0 and szám1 % 2 == 0) or (szám1 < 0 and szám1 % 2 != 0):
+      print('A szám pozitív és páros vagy negatív és páratlan.')
+
+  if (szám1 > 0 and szám1 % 2 == 0) and (szám1 < 0 and szám1 % 2 != 0):
+      print('A szám pozitív és páros és negatív és páratlan.')
+  ```
+
+### Adattipusok
+
+- Számok:
+  ```python
+  egész = 5
+  lebegőpontos = 5.5
+  ```
+
+- Szövegek:
+  ```python
+  szöveg = 'Ez egy szöveg.'
+  ```
+
+- Listák:
+  ```python
+  lista = [1, 2, 3, 4, 5]
+  ```
+
+  - Hossz:
+    ```python
+    lista = [1, 2, 3, 4, 5]
+    print(len(lista))
+    ```
+
+  - Elem hozzáadása:
+    ```python
+    lista = [1, 2, 3, 4, 5]
+    lista.append(6)
+    print(lista)
+    ```
+
+  - Elem eltávolítása:
+    ```python
+    lista = [1, 2, 3, 4, 5]
+    lista.remove(3)
+    print(lista)
+    ```
+
+  - Elem indexe:
+    ```python
+    lista = [1, 2, 3, 4, 5]
+    print(lista.index(3))
+    ```
+
+  - Elem számolása:
+    ```python
+    lista = [1, 2, 3, 4, 5, 3]
+    print(lista.count(3))
+    ```
+
+  - Elemek sorba rendezése:
+    ```python
+    lista = [5, 3, 4, 1, 2]
+    lista.sort()
+    print(lista)
+    ```
+
+  - Elemek sorba rendezése fordítva:
+    ```python
+    lista = [5, 3, 4, 1, 2]
+    lista.sort(reverse=True)
+    print(lista)
+    ```
+
+  - Elemek sorba rendezése másolatban:
+    ```python
+    lista = [5, 3, 4, 1, 2]
+    rendezett = sorted(lista)
+    print(rendezett)
+    ```
+
+  - Elemek fordított sorrendben:
+    ```python
+    lista = [5, 3, 4, 1, 2]
+    lista.reverse()
+    print(lista)
+    ```
+
+  - Elemek törlése:
+    ```python
+    lista = [5, 3, 4, 1, 2]
+    lista.clear()
+    print(lista)
+    ```
+
+  - Elemek kivágása index alapján:
+    ```python
+    lista = [5, 3, 4, 1, 2]
+    kivágott = lista.pop(2)
+    print(kivágott)
+    print(lista)
+    ```
+
+  - E
+
+lemek kivágása tartomány alapján:
+    ```python
+    lista = [5, 3, 4, 1, 2]
+    kivágott = lista[1:3]
+    print(kivágott)
+    ```
+
+  - Elemek kivágása tartomány alapján lépéssel:
+    ```python
+    lista = [5, 3, 4, 1, 2]
+    kivágott = lista[1:4:2]
+    print(kivágott)
+    ```
+
+- Tuple:
+  ```python
+  tuple = (1, 2, 3, 4, 5)
+  ```
+
+- Szótár:
+  ```python
+  szótár = {'kulcs': 'érték', 'név': 'Gergő', 'kor': 25}
+  ```
+
+- Bool:
+  Mindig nagybetűvel kezdődik:
+  ```python
+  igaz = True
+  hamis = False
+  ```
+
+- Konverzió:
+  ```python
+  szám = int('5')
+  szöveg = str(5)
+  lebegőpontos = float('5.5')
+  lista = list((1, 2, 3, 4, 5))
+  tuple = tuple([1, 2, 3, 4, 5])
+  szótár = dict(kulcs='érték', név='Gergő', kor=25)
+  halmaz = set([1, 2, 3, 4, 5])
+  ```
+
+## Python Classok (Objektumok) és Függvények
+
+### Függvények
+
+- Egyszerű függvény:
+  ```python
+  def köszöntés():
+      print('Helló Világ!')
+  köszöntés()
+  ```
+
+- Visszatérési értékkel:
+  ```python
+  def négyzetre_emel(szám):
+      return szám ** 2
+  print(négyzetre_emel(5))
+  ```
+
+- Paraméterekkel:
+  ```python
+  def köszöntés(nev):
+      print(f'Helló {nev}!')
+  köszöntés('Béla')
+  ```
+
+- Alapértelmezett paraméterekkel:
+  ```python
+  def köszöntés(nev='Gergő'):
+      print(f'Helló {nev}!')
+  köszöntés()
+  köszöntés('Dorka')
+  ```
+
+### Osztályok
+
+- Egyszerű osztály:
+  ```python
+  class Ember:
+      def __init__(self, név, kor, nem, magasság, súly):
+          self.név = név
+          self.kor = kor
+          self.súly = int(súly)
+          self.nem = nem
+          self.magasság = magasság
+
+      def köszöntés(self):
+          print(f'Helló {self.név}!')
+
+      def bmi(self):
+          return self.súly / (self.magasság / 100) ** 2
+
+  ember = Ember('Gergő', 25, 'férfi', 70, 180)
+  ember.köszöntés()
+  print(f"{ember.név} bmi indexe: {ember.bmi()}")
+  ```
+
+### Modulok
+
+- Modul importálása:
+  ```python
+  import modulnév
+  ```
+
+- Modulból függvény importálása:
+  ```python
+  from modulnév import függvény
+  ```
+
+- Modulból osztály importálása:
+  ```python
+  from modulnév import Osztály
+  ```
+
+- Modulból mindent importálása:
+  ```python
+  from modulnév import *
+  ```

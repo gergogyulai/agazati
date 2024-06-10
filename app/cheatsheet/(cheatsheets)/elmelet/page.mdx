@@ -1,0 +1,213 @@
+# Weboldal Kódolás Cheatsheet
+
+## Általános Beállítások
+
+1. **HTML Alapok**
+   - Nyelv beállítása:
+     ```html
+     <html lang="hu">
+     ```
+   - Karakterkódolás:
+     ```html
+     <meta charset="UTF-8">
+     ```
+   - Böngésző címsor beállítása:
+     ```html
+     <title>Weboldal Címe</title>
+     ```
+
+2. **Stíluslapok Hivatkozása**
+     ```html
+     <link rel="stylesheet" href="css/style.css">
+     ```
+
+## Fejléc
+
+1. **Címsorok**
+   - 1-es szintű címsor:
+     ```html
+     <h1>Címsor 1</h1>
+     ```
+   - 2-es szintű címsor:
+     ```html
+     <h2>Címsor 2</h2>
+     ```
+
+2. **Képek Elhelyezése**
+   - Kép beillesztése és alternatív szöveg:
+     ```html
+     <img src="img/fejlec.jpg" alt="Ha a kép nem jelenik meg" title="Ha a kép fölé visszük a kurzort">
+     ```
+
+## Navigációs Menü
+
+1. **Egyszerű Menüpontok**
+   - Nem rendezett lista:
+     ```html
+     <ul>
+         <li><a href="#link1">Menüpont 1</a></li>
+         <li><a href="#link2">Menüpont 2</a></li>
+     </ul>
+     ```
+
+2. **Új lapon megnyíló link**
+   - Link új lapon nyíljon meg:
+     ```html
+     <a href="https://example.com" target="_blank">Külső Link</a>
+     ```
+
+## Felsorolások
+
+1. **Számozatlan Felsorolás**
+   ```html
+   <ul>
+       <li>Elem 1</li>
+       <li>Elem 2</li>
+   </ul>
+   ```
+
+2. **Számozott Felsorolás**
+   ```html
+   <ol>
+       <li>Elem 1</li>
+       <li>Elem 2</li>
+   </ol>
+   ```
+
+## Bekezdések és Kiemelések
+
+1. **Bekezdés**
+   ```html
+   <p>Ez egy bekezdés.</p>
+   ```
+
+2. **Félkövér és Dőlt Szöveg**
+   - Félkövér:
+     ```html
+     <b>Félkövér szöveg</b>
+     ```
+   - Dőlt:
+     ```html
+     <i>Dőlt szöveg</i>
+     ```
+
+3. **Aláhúzott Szöveg**
+   ```html
+   <u>Aláhúzott szöveg</u>
+   ```
+
+## Táblázatok
+
+1. **Egyszerű Táblázat**
+   ```html
+   <table>
+       <thead>
+           <tr>
+               <th>Fejléc 1</th>
+               <th>Fejléc 2</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <td>Adat 1</td>
+               <td>Adat 2</td>
+           </tr>
+       </tbody>
+   </table>
+   ```
+
+2. **Bootstrap Táblázat**
+   ```html
+   <table class="table table-striped">
+       <thead class="text-uppercase">
+           <tr>
+               <th>Fejléc 1</th>
+               <th>Fejléc 2</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <td>Adat 1</td>
+               <td>Adat 2</td>
+           </tr>
+       </tbody>
+   </table>
+   ```
+
+## Hivatkozások és Ugrópontok
+
+1. **Ugrópont Hivatkozása**
+   ```html
+   <a href="#eleje">Ugrás az elejére</a>
+   ```
+
+2. **Ugrópont Célja**
+   ```html
+   <div id="eleje"></div>
+   ```
+
+## Stílusok (CSS)
+
+1. **Betűtípus Beállítása**
+   ```css
+   body {
+       font-family: Verdana;
+   }
+   ```
+
+2. **Elem Szélessége**
+   ```css
+   #fejlec {
+       width: 100%;
+   }
+   ```
+
+3. **Címsor Betűmérete**
+   ```css
+   h3 {
+       font-size: 2.5em;
+   }
+   ```
+
+4. **Háttérszín és Szegély**
+   ```css
+   .hobbi {
+       background-color: rgb(255, 242, 207);
+       border: 2px solid black;
+   }
+   ```
+
+5. **Link Stílus**
+   ```css
+   footer a {
+       color: black;
+       font-weight: bold;
+       text-decoration: none;
+   }
+   footer a:hover {
+       text-transform: uppercase;
+   }
+   ```
+
+6. **Bekezdés Igazítása**
+   ```css
+   p {
+       text-align: justify;
+   }
+   ```
+
+7. **Listaelem Stílus**
+   ```css
+   #eleseg {
+       list-style-image: url('../img/rovar.png');
+       margin-left: 25px;
+   }
+   ```
+
+## Ellenőrzés
+
+1. **HTML Validálás**
+   - https://validator.w3.org/
+
+2. **CSS Validálás**
+   - https://jigsaw.w3.org/css-validator/

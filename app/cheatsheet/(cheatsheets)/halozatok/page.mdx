@@ -1,0 +1,129 @@
+# Cisco Packet Tracer Puskázó Lap
+
+## Tartalomjegyzék
+1. [Fájlok megnyitása és mentése](#fájlok-megnyitása-és-mentése)
+2. [Eszközök elhelyezése és összekapcsolása](#eszközök-elhelyezése-és-összekapcsolása)
+3. [IP-címek konfigurálása](#ip-címek-konfigurálása)
+4. [Kapcsolódási problémák elhárítása](#kapcsolódási-problémák-elhárítása)
+5. [Alap- és biztonsági beállítások a Switchen](#alap-és-biztonsági-beállítások-a-switchen)
+6. [SSH hozzáférés konfigurálása](#ssh-hozzáférés-konfigurálása)
+7. [DHCP konfigurálása a Routeren](#dhcp-konfigurálása-a-routeren)
+8. [Vezeték nélküli hálózat konfigurálása](#vezeték-nélküli-hálózat-konfigurálása)
+9. [Kapcsolódás tesztelése](#kapcsolódás-tesztelése)
+10. [Egyéb hasznos parancsok](#egyéb-hasznos-parancsok)
+
+## Fájlok megnyitása és mentése
+1. Nyissa meg a `.pka` fájlt a Cisco Packet Tracerben.
+2. Mentse el a fájlt a következő névformátumban: `VezetéknévKeresztnév-osztály.pka` (pl.: `KisJanos-10c.pka`).
+
+## Eszközök elhelyezése és összekapcsolása
+
+## IP-címek konfigurálása
+
+## Kapcsolódási problémák elhárítása
+
+## Alap- és biztonsági beállítások a Switchen
+### Eszköznév beállítása
+```bash
+Switch> enable
+Switch# configure terminal
+Switch(config)# hostname K1-SW1
+```
+
+### Jelszavak titkosítása
+```bash
+K1-SW1(config)# service password-encryption
+```
+
+### Konfiguráció mentése
+```bash
+K1-SW1# copy running-config startup-config
+```
+
+## SSH hozzáférés konfigurálása
+
+### SSH engedélyezése
+```bash
+(config)# hostname router1
+(config)# ip domain-name teszt.hu
+(config)# crypto key generate rsa
+How many bits in the modulus [512]: 1024
+(config)# ip ssh version 2
+(config)# username admin password cisco2
+(config)# line vty 0 15
+(config-line)# login local
+(config-line)# transport input ssh
+```
+
+## DHCP konfigurálása a Routeren
+
+## Vezeték nélküli hálózat konfigurálása
+1. Menjen a SULI-WIFI eszközre.
+2. Nyissa meg a GUI (Graphic User Interface) felületet.
+3. Állítsa be a vezeték nélküli hálózat nevét (SSID) és a WPA2-PSK titkosítást.
+4. Állítsa be a kulcsot: `ISKOLA123`.
+
+## Kapcsolódás tesztelése
+
+## Egyéb hasznos parancsok
+### Enable és Console jelszó beállítása
+**Enable jelszó beállítása (normál jelszó):**
+```bash
+Gyar1(config)# enable password Gyar1ena
+Gyar1(config)# exit
+```
+
+**Enable jelszó beállítása (titkosított jelszó):**
+```bash
+Gyar1(config)# enable secret Gyar1ena
+Gyar1(config)# exit
+```
+
+**Console jelszó beállítása:**
+```bash
+Gyar1(config)# line console 0
+Gyar1(config-line)# password Gyar1Con
+Gyar1(config-line)# login
+```
+
+### Port konfigurálása
+**PORTCONF:**
+```bash
+Gyar1(config)# interface gigabitEthernet 0/1
+Gyar1(config-if)# ip address 10.1.2.5 255.255.255.252
+Gyar1(config-if)# no shutdown
+```
+
+### Telnet konfigurálása
+**TELNET:**
+```bash
+(config)# line vty 0 4
+(config-line)# password cisco
+(config-line)# login
+```
+
+### Felügyeleti IP-cím beállítása a Switch-en
+**Felügyeleti IP-cím adása a kapcsolónak (itt VLAN 1 a felügyeleti VLAN):**
+```bash
+Switch(config)# interface vlan 1
+Switch(config-if)# ip address 10.0.0.1 255.0.0.0
+Switch(config-if)# no shutdown
+```
+
+### VLAN konfigurálása
+**VLAN konfigurálása:**
+```bash
+Switch(config)# vlan (vlan_szám)
+Switch(config-vlan)# name (vlan_név)
+Switch(config-vlan)# exit
+Switch(config)# interface fa0/(port_szám)
+Switch(config-if)# switchport access vlan (vlan_szám)
+Switch(config-if)# exit
+```
+
+### Trönkport beállítása
+**Trönkport beállítása:**
+```bash
+Switch(config)# interface (port)
+Switch(config-if)# switchport mode trunk
+```

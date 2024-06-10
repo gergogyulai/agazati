@@ -3,8 +3,16 @@ const { fontFamily } = require("tailwindcss/defaultTheme")
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}", './mdx-components.tsx',],
+  safelist: [
+    {
+      pattern: /hljs+/,
+    },
+  ],
   theme: {
+    hljs: {
+      theme: 'atom-one-dark',
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -72,5 +80,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography'), require('tailwind-highlightjs')],
 }

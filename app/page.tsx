@@ -2,6 +2,8 @@ import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { vizsgak } from "@/config/vizsgak"
 import { Button } from "@/components/ui/button"
+import { Check } from "lucide-react"
+import DoneButton from "@/components/done-button"
 
 export default function IndexPage() {
   return (
@@ -18,18 +20,25 @@ export default function IndexPage() {
         {vizsgak.map((vizsga, index) => (
           <Card key={index} className="mb-4">
             <CardHeader>
-              <CardTitle>{vizsga.title}</CardTitle>
+              <CardTitle className="flex h-6 items-center justify-between">
+                <div>
+                  {vizsga.title} - <span className="opacity-50">{vizsga.date}</span>
+                </div>
+                <div>
+                  <DoneButton id={vizsga.id}/>
+                </div>
+              </CardTitle>
               <CardDescription>
-                <Link href={vizsga.doc}>
-                  <span className="text-blue-500 underline">Teljes Feladatlap</span>
+                <Link target="_blank" href={vizsga.doc}>
+                  <span className="text-blue-500 underline">Feladatlap</span>
                 </Link>
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="font-bold">Forrás kódok:</p>
+              <p className="font-bold">Forrás:</p>
               {vizsga.files.map((file, fileIndex) => (
-                <div key={fileIndex} className="mb-2 flex items-center justify-between opacity-80">
-                  <span>{file.title}</span>
+                <div key={fileIndex} className="group mb-2 flex items-center justify-between opacity-80">
+                  <span className=" group-last:font-bold">{file.title}</span>
                   <Link href={file.path}>
                     <Button variant={"secondary"}>Letöltés</Button>
                   </Link>
@@ -38,6 +47,9 @@ export default function IndexPage() {
             </CardContent>
           </Card>
         ))}
+      </section>
+      <section className="flex w-full items-center justify-center">
+        <Link href={"/gyakorlo"}><Button variant={"ghost"}>További gyakorló feladatok</Button></Link>
       </section>
     </section>
   )
