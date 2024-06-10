@@ -6,8 +6,16 @@ import { Car } from "lucide-react";
 
 export default function IndexPage() {
   return (
-    <div className="flex h-full flex-col items-center justify-center">
-      <section className="grid grid-flow-row grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
+    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+      <div className="flex max-w-[980px] flex-col items-start gap-2">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
+        Cheatsheetek 
+        </h1>
+        <p className="max-w-[700px] text-lg text-muted-foreground">
+          Az alábbiakban megtalálod az általam készített cheatsheeteket. Ezek a segédletek segítenek a programozásban, hálózatokban és a webfejlesztésben.
+        </p>
+      </div>
+      <section className="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardContent className="flex h-64 flex-col items-center justify-center">
             <CardHeader>
@@ -36,6 +44,6 @@ export default function IndexPage() {
           </CardContent>
         </Card>
       </section>
-    </div>
+    </section>
   );
 }
