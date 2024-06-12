@@ -22,7 +22,7 @@ export default function IndexPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <div>
-                  {vizsga.title} - <span className="opacity-50">{vizsga.date}</span>
+                  {vizsga.title}
                 </div>
                 <div>
                   <DoneButton id={vizsga.id}/>
@@ -44,6 +44,7 @@ export default function IndexPage() {
                   </Link>
                 </div>
               ))}
+              <span className="opacity-30 font-bold">{vizsga.date}</span>
             </CardContent>
           </Card>
         ))}
