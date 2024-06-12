@@ -20,7 +20,7 @@ export default function IndexPage() {
         {vizsgak.map((vizsga, index) => (
           <Card key={index} className="mb-4">
             <CardHeader>
-              <CardTitle className="flex h-6 items-center justify-between">
+              <CardTitle className="flex items-center justify-between">
                 <div>
                   {vizsga.title} - <span className="opacity-50">{vizsga.date}</span>
                 </div>
