@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
+import MobileNav from "./mobile-nav"
 
 
 export function SiteHeader() {
@@ -10,12 +11,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
-          <Link href="/" className="flex items-center gap-2">
+          <MobileNav />
+          <Link href="/" className="items-center gap-2 hidden md:flex">
             <div><Icons.logo className="size-8" /></div>
             <span className="mb-1 font-bold">{siteConfig.name}</span>
           </Link>
           {siteConfig.mainNav?.length ? (
-            <nav className="flex gap-6">
+            <nav className="gap-6 hidden lg:flex">
               {siteConfig.mainNav?.map(
                 (item, index) =>
                   item.href && (

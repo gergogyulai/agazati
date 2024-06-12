@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { gyakorlo } from "@/config/vizsgak";
 import { Button } from "@/components/ui/button";
-import { Car } from "lucide-react";
 
 export default function IndexPage() {
   return (
