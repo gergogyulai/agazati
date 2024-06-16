@@ -33,7 +33,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <head>
+          <script defer src="https://cloud.umami.is/script.js" data-website-id="4835ebcd-8156-4f50-a5a6-8c1c9d44899a"></script>
+        </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
