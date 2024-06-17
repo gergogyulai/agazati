@@ -44,7 +44,7 @@ export default function IndexPage() {
                   </Link>
                 </div>
               ))}
-              <span className="opacity-30 font-bold">{vizsga.date}</span>
+              <span className="font-bold opacity-30">{vizsga.date}</span>
             </CardContent>
           </Card>
         ))}

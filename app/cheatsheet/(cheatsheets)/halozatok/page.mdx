@@ -85,91 +85,91 @@
 
 ### Eszköznév beállítása
 ```bash
-Switch> enable
-Switch# configure terminal
-Switch(config)# hostname K1-SW1
+Switch$ enable
+Switch$ configure terminal
+Switch(config)$ hostname K1-SW1
 ```
 
 ### Jelszavak titkosítása
 ```bash
-K1-SW1(config)# service password-encryption
+K1-SW1(config)$ service password-encryption
 ```
 
 ### Konfiguráció mentése
 A konfiguráció mentéséhez a következő parancsokat lehet használni:
 1. 
     ```bash
-    K1-SW1# copy running-config startup-config
+    K1-SW1$ copy running-config startup-config
     ```
 2. 
     ```bash
-    K1-SW1# write memory
+    K1-SW1$ write memory
     ```
 3. 
     ```bash
-    K1-SW1# wr
+    K1-SW1$ wr
     ```
 
 ### Enable jelszó beállítása
 **Enable jelszó beállítása (normál jelszó):**
 ```bash
-Switch(config)# enable password <Ide Jön a jelszó>
-Switch(config)# end
-Switch# exit
+Switch(config)$ enable password <Ide Jön a jelszó>
+Switch(config)$ end
+Switch$ exit
 ```
 
 **Enable jelszó beállítása (titkosított jelszó):**
 ```bash
-Switch(config)# enable secret <Ide Jön a jelszó>
-Switch(config)# end
-Switch# exit
+Switch(config)$ enable secret <Ide Jön a jelszó>
+Switch(config)$ end
+Switch$ exit
 ```
 
 ### Console jelszó beállítása
 ```bash
-Switch(config)# line con 0
-Switch(config-line)# password Gyar1Con
-Switch(config-line)# login
-Switch(config-line)# end
-Switch# exit
+Switch(config)$ line con 0
+Switch(config-line)$ password Gyar1Con
+Switch(config-line)$ login
+Switch(config-line)$ end
+Switch$ exit
 ```
 
 ### Port konfigurálása
 ```bash
-Switch(config)# interface gigabitEthernet 0/1
-Switch(config-if)# ip address 10.1.2.5 255.255.255.252
-Switch(config-if)# no shutdown
+Switch(config)$ interface gigabitEthernet 0/1
+Switch(config-if)$ ip address 10.1.2.5 255.255.255.252
+Switch(config-if)$ no shutdown
 ```
 
 ### Felügyeleti IP-cím beállítása a Switch-en
 **Felügyeleti IP-cím adása a kapcsolónak (itt VLAN 1 a felügyeleti VLAN):**
 ```bash
-Switch(config)# int vlan 1
-Switch(config-if)# ip address 10.0.0.1 255.0.0.0
-Switch(config-if)# no shutdown
+Switch(config)$ int vlan 1
+Switch(config-if)$ ip address 10.0.0.1 255.0.0.0
+Switch(config-if)$ no shutdown
 ```
 
 ## SSH hozzáférés konfigurálása
 ```bash
-Router(config)# hostname router1
-Router(config)# ip domain-name teszt.hu
-Router(config)# crypto key generate rsa
+Router(config)$ hostname router1
+Router(config)$ ip domain-name teszt.hu
+Router(config)$ crypto key generate rsa
     How many bits in the modulus [512]: 1024
-Router(config)# ip ssh version 2
-Router(config)# username admin password cisco2
-Router(config)# line vty 0 15
-Router(config-line)# login local
-Router(config-line)# transport input ssh
+Router(config)$ ip ssh version 2
+Router(config)$ username admin password cisco2
+Router(config)$ line vty 0 15
+Router(config-line)$ login local
+Router(config-line)$ transport input ssh
 ```
 
 ## DHCP konfigurálása a Routeren
 ```bash
-Router(config)# ip dhcp pool <pool-name>
-Router(dhcp-config)# network 192.168.1.0 255.255.255.0
-Router(dhcp-config)# default-router 192.168.1.1
-Router(dhcp-config)# dns-server 8.8.8.8
-Router(dhcp-config)# exit
-Router(config)# ip dhcp excluded-address 192.168.1.1 192.168.1.10
+Router(config)$ ip dhcp pool <pool-name>
+Router(dhcp-config)$ network 192.168.1.0 255.255.255.0
+Router(dhcp-config)$ default-router 192.168.1.1
+Router(dhcp-config)$ dns-server 8.8.8.8
+Router(dhcp-config)$ exit
+Router(config)$ ip dhcp excluded-address 192.168.1.1 192.168.1.10
 ```
 
 ## Vezeték nélküli hálózat konfigurálása
