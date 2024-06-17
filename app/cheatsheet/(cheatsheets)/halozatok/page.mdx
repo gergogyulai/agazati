@@ -1,15 +1,15 @@
 # Cisco Packet Tracer Cheatsheet
 
 ## Tartalomjegyzék
-0. [Topológia]
-    - [Topológia](#topológia)
+1. [Topológia](#topológia)
+    - [Eszközök és Kapcsolatok](#eszközök-és-kapcsolatok)
     - [IP címek](#ip-címek)
     - [Jelszavak](#jelszavak)
     - [VLAN-ok](#vlan-ok)
     - [DHCP](#dhcp)
     - [SSH](#ssh)
     - [Vezeték nélküli hálózat](#vezeték-nélküli-hálózat)
-1. [Alap beállítások a Switchen](#Alap-beállítások-a-Switchen)
+2. [Alap beállítások a Switchen](#alap-beállítások-a-switchen)
     - [Eszköznév beállítása](#eszköznév-beállítása)
     - [Jelszavak titkosítása](#jelszavak-titkosítása)
     - [Konfiguráció mentése](#konfiguráció-mentése)
@@ -17,33 +17,51 @@
     - [Console jelszó beállítása](#console-jelszó-beállítása)
     - [Port konfigurálása](#port-konfigurálása)
     - [Felügyeleti IP-cím beállítása a Switch-en](#felügyeleti-ip-cím-beállítása-a-switch-en)
-2. [SSH hozzáférés konfigurálása](#ssh-hozzáférés-konfigurálása)
-3. [DHCP konfigurálása a Routeren](#dhcp-konfigurálása-a-routeren)
-4. [Vezeték nélküli hálózat konfigurálása](#vezeték-nélküli-hálózat-konfigurálása)
-
+3. [SSH hozzáférés konfigurálása](#ssh-hozzáférés-konfigurálása)
+4. [DHCP konfigurálása a Routeren](#dhcp-konfigurálása-a-routeren)
+5. [Vezeték nélküli hálózat konfigurálása](#vezeték-nélküli-hálózat-konfigurálása)
 
 ## Topológia
 
-### Legyakrabben előforduló eszközok a feladatokban
-- Router
-- Switch
-- PC
-- Laptop
-- Server
-- Printer
+### Eszközök és Kapcsolatok
+- **Legyakrabban előforduló eszközök:**
+    - Router
+    - Home Router
+    - Switch
+    - PC
+    - Laptop
+    - Server
 
-### Eszközök összekötése
-- Azonos eszözök között: **keresztkötésű (szaggatott) kábel**
-- Különböző eszközök között: **egyeneskötésű (normál) kábel**
+- **Eszközök összekötése:**
+    - Azonos eszközök között: **keresztkötésű (szaggatott) kábel**
+    - Különböző eszközök között: **egyeneskötésű (normál) kábel**
 
-### Legyakoribb CLI parancsok
+### IP címek
+- Az IP címek megfelelő kiosztása az eszközök között.
+
+### Jelszavak
+- Jelszavak beállítása és titkosítása a biztonság érdekében.
+
+### VLAN-ok
+- VLAN-ok létrehozása és konfigurálása a hálózat szegmentálásához.
+
+### DHCP
+- DHCP konfigurálása a dinamikus IP címkiosztáshoz.
+
+### SSH
+- SSH konfigurálása a biztonságos távmenedzsmenthez.
+
+### Vezeték nélküli hálózat
+- Vezeték nélküli hálózat beállítása és konfigurálása.
+
+### Leggyakoribb CLI parancsok
 
 #### Alapok
-- `enable` vagy `en`- Privilegizált módba lépés
+- `enable` vagy `en` - Privilegizált módba lépés
 - `configure terminal` vagy `conf t` - Konfigurációs módba lépés
 - `show running-config` - Jelenlegi konfiguráció megjelenítése
 - `copy running-config startup-config` - Konfiguráció mentése
-- `write memory` vagy `wr`- Konfiguráció mentése
+- `write memory` vagy `wr` - Konfiguráció mentése
 - `exit` - Kilépés a konfigurációs módból
 
 #### Jelszó beállítások
@@ -52,7 +70,6 @@
 - `line console 0` - Console jelszó beállítása
 - `password Gyar1Con` - Console jelszó beállítása
 - `login` - Bejelentkezés engedélyezése
-
 
 #### Interfész beállítások
 - `interface gigabitEthernet 0/1` - Interfész kiválasztása
@@ -64,8 +81,8 @@
 - `name VLAN1` - VLAN nevének beállítása
 - `exit` - Kilépés a VLAN beállításokból
 
+## Alap beállítások a Switchen
 
-## Alap beállítások
 ### Eszköznév beállítása
 ```bash
 Switch> enable
@@ -79,26 +96,23 @@ K1-SW1(config)# service password-encryption
 ```
 
 ### Konfiguráció mentése
-    A konfiguráció mentéséhez a következő parancsokat lehet hasznáklni:
-
-    1. 
-        ```bash
-        K1-SW1# copy running-config startup-config
-        ```
-    2. 
-        ```bash
-        K1-SW1# write memory
-        ```
-    3. 
-        ```bash
-        K1-SW1# wr
-        ```
+A konfiguráció mentéséhez a következő parancsokat lehet használni:
+1. 
+    ```bash
+    K1-SW1# copy running-config startup-config
+    ```
+2. 
+    ```bash
+    K1-SW1# write memory
+    ```
+3. 
+    ```bash
+    K1-SW1# wr
+    ```
 
 ### Enable jelszó beállítása
 **Enable jelszó beállítása (normál jelszó):**
 ```bash
-Switch(config)# en
-Switch(config)# conf t
 Switch(config)# enable password <Ide Jön a jelszó>
 Switch(config)# end
 Switch# exit
@@ -106,8 +120,6 @@ Switch# exit
 
 **Enable jelszó beállítása (titkosított jelszó):**
 ```bash
-Switch(config)# en
-Switch(config)# conf t
 Switch(config)# enable secret <Ide Jön a jelszó>
 Switch(config)# end
 Switch# exit
@@ -115,14 +127,11 @@ Switch# exit
 
 ### Console jelszó beállítása
 ```bash
-Switch(config)# en
-Switch(config)# conf t
 Switch(config)# line con 0
 Switch(config-line)# password Gyar1Con
 Switch(config-line)# login
 Switch(config-line)# end
 Switch# exit
-
 ```
 
 ### Port konfigurálása
@@ -153,6 +162,16 @@ Router(config-line)# login local
 Router(config-line)# transport input ssh
 ```
 
+## DHCP konfigurálása a Routeren
+```bash
+Router(config)# ip dhcp pool <pool-name>
+Router(dhcp-config)# network 192.168.1.0 255.255.255.0
+Router(dhcp-config)# default-router 192.168.1.1
+Router(dhcp-config)# dns-server 8.8.8.8
+Router(dhcp-config)# exit
+Router(config)# ip dhcp excluded-address 192.168.1.1 192.168.1.10
+```
+
 ## Vezeték nélküli hálózat konfigurálása
 1. Válaszd ki a home routert.
 2. Nyisd meg a GUI felületet.
@@ -160,12 +179,12 @@ Router(config-line)# transport input ssh
 4. Állítsd be a subnet maskot.
 5. Állítsd be a DHCP-t a feladatnak megfelelően.
 6. Állítsd be a DNS szerver(eke)t.
-6. Mentés.
-7. Ellenőrizd a beállításokat hogy biztosan elmentette-e, mert a packet tracer egy fos.
+7. Mentés.
+8. Ellenőrizd a beállításokat hogy biztosan elmentette-e, mert a Packet Tracer néha nem ment megfelelően.
 
-___________
+### Vezeték nélküli hálózat beállítása
 1. Menj a Wireless fülre.
-2. Állítsd be a vezeték nélküli hálózat nevét (SSID) és a WPA2-PSK titkosítást(vagy amit a feladat kér).
+2. Állítsd be a vezeték nélküli hálózat nevét (SSID) és a WPA2-PSK titkosítást (vagy amit a feladat kér).
 3. Állítsd be a kulcsot.
 4. Mentés és bezárás.
-5. Ellenőrizd a beállításokat hogy biztosan elmentette-e, mert a packet tracer egy fos.
+5. Ellenőrizd a beállításokat hogy biztosan elmentette-e, mert a Packet Tracer néha nem ment megfelelően.
