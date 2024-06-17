@@ -12,12 +12,12 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
           <MobileNav />
-          <Link href="/" className="items-center gap-2 hidden md:flex">
+          <Link href="/" className="hidden items-center gap-2 md:flex">
             <div><Icons.logo className="size-8" /></div>
             <span className="mb-1 font-bold">{siteConfig.name}</span>
           </Link>
           {siteConfig.mainNav?.length ? (
-            <nav className="gap-6 hidden lg:flex">
+            <nav className="hidden gap-6 lg:flex">
               {siteConfig.mainNav?.map(
                 (item, index) =>
                   item.href && (

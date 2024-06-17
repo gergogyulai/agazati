@@ -1,6 +1,14 @@
 # Cisco Packet Tracer Cheatsheet
 
 ## Tartalomjegyzék
+0. [Topológia]
+    - [Topológia](#topológia)
+    - [IP címek](#ip-címek)
+    - [Jelszavak](#jelszavak)
+    - [VLAN-ok](#vlan-ok)
+    - [DHCP](#dhcp)
+    - [SSH](#ssh)
+    - [Vezeték nélküli hálózat](#vezeték-nélküli-hálózat)
 1. [Alap beállítások a Switchen](#Alap-beállítások-a-Switchen)
     - [Eszköznév beállítása](#eszköznév-beállítása)
     - [Jelszavak titkosítása](#jelszavak-titkosítása)
@@ -13,7 +21,51 @@
 3. [DHCP konfigurálása a Routeren](#dhcp-konfigurálása-a-routeren)
 4. [Vezeték nélküli hálózat konfigurálása](#vezeték-nélküli-hálózat-konfigurálása)
 
-## Alap beállítások a Switchen
+
+## Topológia
+
+### Legyakrabben előforduló eszközok a feladatokban
+- Router
+- Switch
+- PC
+- Laptop
+- Server
+- Printer
+
+### Eszközök összekötése
+- Azonos eszözök között: **keresztkötésű (szaggatott) kábel**
+- Különböző eszközök között: **egyeneskötésű (normál) kábel**
+
+### Legyakoribb CLI parancsok
+
+#### Alapok
+- `enable` vagy `en`- Privilegizált módba lépés
+- `configure terminal` vagy `conf t` - Konfigurációs módba lépés
+- `show running-config` - Jelenlegi konfiguráció megjelenítése
+- `copy running-config startup-config` - Konfiguráció mentése
+- `write memory` vagy `wr`- Konfiguráció mentése
+- `exit` - Kilépés a konfigurációs módból
+
+#### Jelszó beállítások
+- `enable password Gyar1ena` - Normál jelszó beállítása
+- `enable secret Gyar1ena` - Titkosított jelszó beállítása
+- `line console 0` - Console jelszó beállítása
+- `password Gyar1Con` - Console jelszó beállítása
+- `login` - Bejelentkezés engedélyezése
+
+
+#### Interfész beállítások
+- `interface gigabitEthernet 0/1` - Interfész kiválasztása
+- `ip address 10.20.30.40 255.255.255.0` - IP cím beállítása
+- `no shutdown` - Interfész bekapcsolása
+
+#### VLAN beállítások
+- `vlan 1` - VLAN létrehozása
+- `name VLAN1` - VLAN nevének beállítása
+- `exit` - Kilépés a VLAN beállításokból
+
+
+## Alap beállítások
 ### Eszköznév beállítása
 ```bash
 Switch> enable
@@ -45,21 +97,32 @@ K1-SW1(config)# service password-encryption
 ### Enable jelszó beállítása
 **Enable jelszó beállítása (normál jelszó):**
 ```bash
-Switch(config)# enable password Gyar1ena
-Switch(config)# exit
+Switch(config)# en
+Switch(config)# conf t
+Switch(config)# enable password <Ide Jön a jelszó>
+Switch(config)# end
+Switch# exit
 ```
 
 **Enable jelszó beállítása (titkosított jelszó):**
 ```bash
-Switch(config)# enable secret Gyar1ena
-Switch(config)# exit
+Switch(config)# en
+Switch(config)# conf t
+Switch(config)# enable secret <Ide Jön a jelszó>
+Switch(config)# end
+Switch# exit
 ```
 
 ### Console jelszó beállítása
 ```bash
-Switch(config)# line console 0
+Switch(config)# en
+Switch(config)# conf t
+Switch(config)# line con 0
 Switch(config-line)# password Gyar1Con
 Switch(config-line)# login
+Switch(config-line)# end
+Switch# exit
+
 ```
 
 ### Port konfigurálása

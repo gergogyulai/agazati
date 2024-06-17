@@ -12,26 +12,26 @@
     - [VSCode Emmet Rövidítések](#vscode-emmet-rövidítések)
 2. [CSS Alapok](#css-alapok)
    - [Betűtípus beállítások](#betűtípus-beállítások)
-   - [Elem szélessége](#elem-szélessége)
+   - [Elem szélessége és magassága](#elem-szélessége-és-magassága)
    - [Bekezdés igazítása](#bekezdés-igazítása)
    - [Listaelem stílus](#listaelem-stílus)
-3. [Színek](#színek)
-4. [Szegélyek](#szegélyek)
-5. [Háttérképek](#háttérképek)
-6. [Belső és Külső margók (margin, padding)](#belső-és-külső-margók-margin-padding)
-7. [Ellenőrzés](#ellenőrzés)
+   - [Színek](#színek)
+   - [Szegélyek](#szegélyek)
+   - [Háttérképek](#háttérképek)
+   - [Belső és Külső margók (margin, padding)](#belső-és-külső-margók-margin-padding)
+   - [Ellenőrzés](#ellenőrzés)
+3. [Ábrák](#ábrák)
 
 ## Bevezetés
 Ez a weboldal kódolás cheatsheet tartalmazza az alapvető HTML és CSS kódokat, amelyek segítségével weboldalakat készíthetünk. A cheatsheet tartalmazza az alapvető HTML elemeket, CSS tulajdonságokat, színeket, szegélyeket, háttérképeket, margókat és egyéb hasznos információkat.
 
-W3Schools: 
+További források: 
 [HTML](https://www.w3schools.com/html/default.asp), 
 [CSS](https://www.w3schools.com/css/default.asp)
+
 ## HTML Alapok
 
 ### Általános Beállítások
-
-### HTML Alapok
 - Nyelv beállítása a HTML dokumentum tetején:
     ```html
     <html lang="hu">
@@ -79,18 +79,12 @@ Kép hozzáadása a weboldalhoz, alternatív szöveggel és felirattal.
         <li>Elem 2</li>
     </ul>
     ```
-    ```code
-    ul>li*3
-    ```
 - Számozott felsorolás:
     ```html
     <ol>
         <li>Elem 1</li>
         <li>Elem 2</li>
     </ol>
-    ```
-    ```code
-    ol>li*3
     ```
 
 ### Bekezdések és Kiemelések
@@ -157,14 +151,17 @@ Kép hozzáadása a weboldalhoz, alternatív szöveggel és felirattal.
     <a href="https://example.com" target="_blank">Külső Link</a>
     ```
 - Ugrópontok létrehozása:
-    - Ugrópont hivatkozása:
-        ```html
-        <a href="#eleje">Ugrás az elejére</a>
-        ```
-    - Ugrópont célja:
-        ```html
-        <div id="eleje"></div>
-        ```
+    ```html
+    <!-- Ugrópont hivatkozás célja -->
+    <div id="eleje">
+        <h1>Tartalom</h1>
+        <p>...</p>
+    </div>
+
+    <!-- Ugrópont hivatkozás -->
+    <a href="#eleje">Ugrás az elejére</a>
+    ```
+
 ### VSCode Emmet Rövidítések
 
 1. Számozatlan lista azonosítóval és osztállyal:
@@ -244,23 +241,14 @@ Kép hozzáadása a weboldalhoz, alternatív szöveggel és felirattal.
     </table>
     ```
 
-5. Az összes kijelölt sor külön bekezdéssé alakitása
-    ```code
-    Ez az elso sor
-    Ez a masodik sor
-    Ez a harmadik sor
-    Ez a negyedik sor
-    ```
+5. Az összes kijelölt sor külön bekezdéssé alakítása:
     ```code
     p*
     ```
-    így alakul át:
     ```html
     <p>Ez az elso sor</p>
     <p>Ez a masodik sor</p>
     <p>Ez a harmadik sor</p>
-
-
     <p>Ez a negyedik sor</p>
     ```
 
@@ -316,50 +304,37 @@ Kép hozzáadása a weboldalhoz, alternatív szöveggel és felirattal.
     ```css
     .nagyitas {
         font-size: 1.2em;
-        /*  vagy  */
-        font-size: 120%;
     }
     .kicsinyites {
         font-size: 0.8em;
-        /*  vagy  */
-        font-size: 80%;
     }
     ```
 
-### Elem szélessége
-Elem szélességének vagy magasságának beállítása
+### Elem szélessége és magassága
+Elem szélességének vagy magasságának beállítása:
 ```css
 #fejlec {
-    /*  szélesség  */
-    width: 100%; /*  százalékban  */
-    width: 960px;  /*  pixelben (képpont) */
+    width: 100%; /* százalékban */
+    width: 960px; /* pixelben (képpont) */
 
-    /*  magasság  */
-    height: 100px; /*  pixelben (képpont)  */
-    height: 80%; /*  százalékban  */
+    height: 100px; /* pixelben (képpont) */
+    height: 80%; /* százalékban */
 }
 ```
 
 ### Bekezdés igazítása
-Bekezdés igazítása sorkizárt módon.
+Bekezdés igazítása:
 ```css
 p {
-    /* balra igazítás  */
-    text-align: left;
-
-    /* jobbra igazítás  */
-    text-align: right;
-
-    /* középre igazítás  */
-    text-align: center;
-
-    /* sorkizárt  */
-    text-align: justify;
+    text-align: left;   /* balra igazítás */
+    text-align: right;  /* jobbra igazítás */
+    text-align: center; /* középre igazítás */
+    text-align: justify;/* sorkizárt */
 }
 ```
 
 ### Listaelem stílus
-Listaelem stílusának megadása egyedi kép használatával.
+Listaelem stílusának megadása egyedi kép használatával:
 ```css
 #lista {
     list-style-image: url('../img/rovar.png');
@@ -367,38 +342,24 @@ Listaelem stílusának megadása egyedi kép használatával.
 ```
 
 ## Színek
-Színek különböző formátumokban történő megadása.
-- Szín megadása:
-    ```css
-    body {
-        /*  rgb kóddal  */
-        color: rgb(255, 0, 0);
-
-        /*  rgb kóddal átlátszósággal */
-        color: rgba(255, 0, 0, 0.5); /* tiszta piros (50% átlátszóság) */
-
-        /*  százalékosan  */
-        color: rgb(100%, 0%, 0%);
-
-        /* hex kóddal */
-        color: rgb(#ff0000);
-    }
-    ```
-- Háttérszín:
-    ```css
-    body {
-        background-color: rgb(255, 255, 255);
-    }
-    ```
-- Betűszín:
-    ```css
-    body {
-        color: black;
-    }
-    ```
+Színek különböző formátumokban történő megadása:
+```css
+body {
+    color: rgb(255, 0, 0);       /* rgb kóddal */
+    color: rgba(255, 0, 0, 0.5); /* rgb kóddal átlátszósággal */
+    color: rgb(100%, 0%, 0%);    /* százalékosan */
+    color: #ff0000;              /* hex kóddal */
+}
+```
+Háttérszín:
+```css
+body {
+    background-color: rgb(255, 255, 255);
+}
+```
 
 ## Szegélyek
-Szegély tulajdonságainak megadása.
+Szegély tulajdonságainak megadása:
 - Szegély vastagsága:
     ```css
     .doboz {
@@ -414,12 +375,9 @@ Szegély tulajdonságainak megadása.
 - Szegély stílusa:
     ```css
     .doboz {
-        /* folyamatos  */
-        border-style: solid;
-        /* szaggatott  */
-        border-style: dashed;
-        /* pontozott  */
-        border-style: dotted;
+        border-style: solid;  /* folyamatos */
+        border-style: dashed; /* szaggatott */
+        border-style: dotted; /* pontozott */
     }
     ```
 - Szegélyek külön-külön:
@@ -429,31 +387,19 @@ Szegély tulajdonságainak megadása.
         border-right-width: 4px;
         border-bottom-width: 5px;
         border-left-width: 6px;
-        border-style: soild;
+        border-style: solid;
         border-color: #ff0000;
     }
     ```
-    - Felül: 2px
-    - Jobb: 4px
-    - Alul: 5px
-    - Bal: 6px
-    - Stílus: folyamatos
-    - Szín: piros
 - Szegélyek rövidítve:
     ```css
     .doboz {
         border: 2px 4px 5px 6px dashed #ff0000;
     }
     ```
-    - Felül: 2px
-    - Jobb: 4px
-    - Alul: 5px
-    - Bal: 6px
-    - Stílus: szaggatott
-    - Szín: piros
 
 ## Háttérképek
-Háttérképek beállításai.
+Háttérképek beállításai:
 - Háttérkép beállítása:
     ```css
     body {
@@ -480,7 +426,7 @@ Háttérképek beállításai.
     ```
 
 ## Belső és Külső margók (margin, padding)
-Margók és belső margók (padding) beállítása.
+Margók és belső margók (padding) beállítása:
 - Belső margó (mind a 4 oldalon):
     ```css
     .doboz {
@@ -509,31 +455,26 @@ Margók és belső margók (padding) beállítása.
         margin-left: 40px;
     }
     ```
-    - Felül: 10px
-    - Jobb: 20px
-    - Alul: 30px
-    - Bal: 40px
 - Margók rövidítve:
     ```css
     .doboz {
         margin: 10px 20px 30px 40px;
     }
     ```
-    - Felül: 10px
-    - Jobb: 20px
-    - Alul: 30px
-    - Bal: 40px
-
 - Margók két oldalra:
     ```css
     .doboz {
         margin: 10px 20px;
     }
     ```
-    - Felül: 10px
-    - Jobb: 20px
 
 ## Ellenőrzés
-A weboldal HTML és CSS kódjának ellenőrzése a W3C validátorok segítségével.
+A weboldal HTML és CSS kódjának ellenőrzése a W3C validátorok segítségével:
 - [HTML Validálás](https://validator.w3.org/)
 - [CSS Validálás](https://jigsaw.w3.org/css-validator/)
+
+
+
+## Ábrák
+HTML alapstruktúra:
+![Alt text](/img/html-strctr.png)

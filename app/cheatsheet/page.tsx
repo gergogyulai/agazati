@@ -10,7 +10,7 @@ export default function IndexPage() {
         Cheatsheetek 
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-          Az alábbiakban megtalálod az általam készített cheatsheeteket. Ezek a segédletek segítenek a programozásban, hálózatokban és a webfejlesztésben.
+          Az alábbiakban megtalálod az általam készített cheatsheeteket. Fontos tudni, hogy ezek a segédletek nem tartalmaznak minden információt, csak azokat a dolgokat, amiket én fontosnak tartok.
         </p>
       </div>
       <section className="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -42,6 +42,14 @@ export default function IndexPage() {
           </CardContent>
         </Card>
       </section>
+      <div className="flex flex-col gap-2 text-center text-muted-foreground">
+      <p>
+        Minden információ az én saját álláspontomat tükrözi, és nem feltétlenül helytálló. (Vedd úgy hogy mindig igazam van kivéve amikor nem.)
+      </p>
+      <p className="font-bold">
+        Mindenki saját felelősségére használja ezeket az információkat
+      </p>
+      </div>
     </section>
   );
 }
