@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en" suppressHydrationWarning>
         <head>
           <script defer src="https://cloud.umami.is/script.js" data-website-id="4835ebcd-8156-4f50-a5a6-8c1c9d44899a"></script>
+          <Analytics/>
         </head>
         <body
           className={cn(
