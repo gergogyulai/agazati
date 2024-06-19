@@ -25,7 +25,7 @@ export const vizsgak = [
     },
     {
         "title" : "Ágazati Alapvizsga 2021-2022 2.nap",
-        "doc": "/pdfs/vizsga/agazati-2021-2022-day1.pdf",
+        "doc": "/pdfs/vizsga/agazati-2021-2022-day2.pdf",
         "date": "2022.06.13.",
         "id": "b4659cdb",
         "files": [
@@ -49,7 +49,7 @@ export const vizsgak = [
     },
     {
         "title" : "Ágazati Alapvizsga 2021-2022 3.nap",
-        "doc": "/pdfs/vizsga/agazati-2021-2022-day1.pdf",
+        "doc": "/pdfs/vizsga/agazati-2021-2022-day3.pdf",
         "date": "2022.06.13.",
         "id": "8a0f34e7",
         "files": [
@@ -97,7 +97,7 @@ export const vizsgak = [
     },
     {
         "title" : "Ágazati Alapvizsga 2022-2023 2.nap",
-        "doc": "/pdfs/vizsga/agazati-2022-2023-day1.pdf",
+        "doc": "/pdfs/vizsga/agazati-2022-2023-day2.pdf",
         "date": "2023.06.25.",
         "id": "38762414",
         "files": [
@@ -121,7 +121,7 @@ export const vizsgak = [
     },
     {
         "title" : "Ágazati Alapvizsga 2022-2023 3.nap",
-        "doc": "/pdfs/vizsga/agazati-2022-2023-day1.pdf",
+        "doc": "/pdfs/vizsga/agazati-2022-2023-day3.pdf",
         "date": "2023.06.27.",
         "id": "51124468",
         "files": [
